@@ -1,0 +1,72 @@
+<!DOCTYPE html><html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MASVIL HOSTING</title>
+<style>
+body {font-family: Arial; background:#050505; color:white; margin:0;}
+header {padding:40px; text-align:center; background:linear-gradient(90deg,#4b00ff,#00d4ff); box-shadow:0 0 30px #00d4ff;}
+.container {padding:20px;}
+.card {background:#0f0f0f; padding:20px; margin:20px 0; border-radius:20px; box-shadow:0 0 15px rgba(0,212,255,0.3);} 
+input, select {width:100%; padding:12px; margin-top:10px; border-radius:10px; border:none; background:#111; color:white;}
+button {width:100%; background:linear-gradient(90deg,#4b00ff,#00d4ff); color:white; padding:14px; border:none; border-radius:12px; margin-top:15px; font-size:15px;}
+footer {text-align:center; padding:20px; font-size:12px; opacity:0.6;}/* POPUP QR */ .qr-popup { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); display:none; align-items:center; justify-content:center; flex-direction:column; z-index:999; } .qr-popup img { width:80%; max-width:300px; border-radius:15px; box-shadow:0 0 25px #00d4ff; } .close-btn { margin-top:20px; padding:10px 20px; border:none; border-radius:10px; background:#ff0033; color:white; } </style>
+
+</head>
+<body><header>
+<h1>⚡ MASVIL HOSTING ⚡</h1>
+<p>Premium Auto Hosting System</p>
+</header><div class="container"><div class="card">
+<h2>🛒 ORDER</h2>
+<input type="text" id="nama" placeholder="Nama kamu">
+<select id="produk">
+<option>VPS R8C4 - 5K</option>
+<option>VPS R16C4 - 8K</option>
+<option>VPS R16C8 - 13K</option>
+<option>Panel Unli - 3K</option>
+<option>Panel Reseller - 5K</option>
+</select>
+<button onclick="order()">🚀 ORDER</button>
+<button onclick="openQR()">💳 LIHAT QRIS</button>
+</div><div class="card">
+<h2>⭐ TESTIMONI</h2>
+<p id="testi">"Server ngebut 🔥"</p>
+</div></div><!-- POPUP QRIS --><div class="qr-popup" id="qr">
+<h2>💳 PEMBAYARAN</h2>
+<h3>Scan QRIS:</h3>
+<img src="qris.jpg" style="width:100%; max-width:300px; border-radius:15px; box-shadow:0 0 20px #00d4ff;">
+<p><b>Atas Nama:</b> EVILL4YOU STORE</p>
+<p><b>NMID:</b> ID1025410488759</p>
+<br>
+<p>📌 <b>Petunjuk Pembayaran:</b></p>
+<p>1. Scan QRIS di atas</p>
+<p>2. Masukkan nominal sesuai pesanan</p>
+<p>3. Lakukan pembayaran</p>
+<p>4. Kirim bukti ke admin via WhatsApp</p>
+<br>
+<p>✔️ Pembayaran aman & cepat</p>
+<p>✔️ Proses otomatis setelah konfirmasi</p>
+<p>✔️ Support fast respon 24 jam</p>
+<button onclick="sudahBayar()">✅ Saya Sudah Bayar</button>
+<button class="close-btn" onclick="closeQR()">Tutup</button>
+</div><footer>
+© 2026 MASVIL HOSTING
+</footer><script>
+function sudahBayar(){
+  let nama = document.getElementById('nama').value;
+  let produk = document.getElementById('produk').value;
+
+  window.location.href = "https://wa.me/6285708463779?text=Halo admin, saya "+nama+" sudah bayar untuk "+produk+", ini bukti transfer saya";
+}
+
+function openQR(){document.getElementById('qr').style.display='flex';}
+function closeQR(){document.getElementById('qr').style.display='none';}
+
+const testi=["Server ngebut 🔥","Admin fast respon 👍","Murah berkualitas","Recommended"];
+let i=0;
+setInterval(()=>{
+ document.getElementById('testi').innerText='"'+testi[i]+'"';
+ i=(i+1)%testi.length;
+},3000);
+</script></body>
+</html>
